@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Editor | WriteAble</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/accessibility.css">
+  <link rel="stylesheet" href="css/editor.css">
+  <script src="js/accessibility.js" defer></script>
+  <script src="js/editor.js" defer></script>
+  <script src="js/voice.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <a class="brand" href="index.html">WriteAble</a>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="editor.html" aria-current="page">Editor</a></li>
+        <li><a href="pages/writing-tips.html">Writing Tips</a></li>
+        <li><a href="pages/grammar-guide.html">Grammar Guide</a></li>
+        <li><a href="pages/templates.html">Templates</a></li>
+        <li><a href="pages/accessibility-guide.html">Accessibility</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <h1>Editor</h1>
+    <p>Type, paste, or dictate your writing, then check it. Use the accessibility button at the bottom right to
+       change text size, theme, or to hear your text read aloud.</p>
+
+    <!-- MEGHA: voice input controls -->
+    <div class="voice-row">
+      <button type="button" class="btn" id="micBtn" aria-pressed="false">
+        <span aria-hidden="true">&#127908;</span> <span id="micLabel">Start speaking</span>
+      </button>
+      <span class="listening" id="listening" role="status" hidden>&#9679; Listening...</span>
+    </div>
+    <p class="msg" id="voiceMsg" role="alert" hidden></p>
+
+    <!-- ESHA: editor, counters, grammar check -->
+    <label class="editor-label" for="editor">Your writing</label>
+    <textarea id="editor" rows="10" placeholder="Start typing, or press Start speaking..."></textarea>
+    <p class="counts" id="counts">Words: 0 | Sentences: 0</p>
+
+    <div class="actions">
+      <button type="button" class="btn" id="checkBtn">Check writing</button>
+      <button type="button" class="btn btn-secondary" id="clearBtn">Clear</button>
+    </div>
+    <p class="status" id="status" role="status"></p>
+    <ul class="suggestions" id="suggestions" aria-label="Grammar suggestions"></ul>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 WriteAble. First-year CSE mini project.</p>
+  </footer>
+</body>
+</html>
