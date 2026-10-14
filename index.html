@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessibility Controls</title>
+  <!-- OpenDyslexic Font CDN -->
+  <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/open-dyslexic">
+  <!-- Local Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Floating Modern Accessibility Widget -->
+  <aside id="accessibility-panel" aria-label="Accessibility Settings">
+    <div class="panel-header">
+      <h3>Accessibility Controls</h3>
+    </div>
+
+    <!-- Font Controls Row -->
+    <div class="control-section">
+      <div class="field-row">
+        <label for="font-slider">Font Size</label>
+        <span id="font-size-val" class="badge">16px</span>
+      </div>
+      <input type="range" id="font-slider" min="14" max="26" value="16">
+    </div>
+
+    <!-- Color & Dyslexia Quick Controls -->
+    <div class="control-section">
+      <label class="section-label">Text & Font</label>
+      <div class="grid-2">
+        <div class="color-picker-wrapper">
+          <input type="color" id="color-picker" value="#000000">
+          <span>Text Color</span>
+        </div>
+        <button id="btn-dyslexia" class="panel-btn" aria-pressed="false">
+          <span>🅰️️</span> Dyslexia-Friendly
+        </button>
+      </div>
+    </div>
+
+    <!-- Theme Presets -->
+    <div class="control-section">
+      <label class="section-label">Theme Preset</label>
+      <div class="btn-group">
+        <button id="btn-light" class="panel-btn active">☀️ Light</button>
+        <button id="btn-dark" class="panel-btn">🌙 Dark</button>
+        <button id="btn-contrast" class="panel-btn">👁️️ Contrast</button>
+      </div>
+    </div>
+
+    <!-- Speech Controls -->
+    <div class="control-section">
+      <label class="section-label">Read Aloud</label>
+      <div class="grid-2">
+        <button id="btn-speak" class="panel-btn primary-btn">🔊 Play All</button>
+        <button id="btn-speak-selected" class="panel-btn">✨ Read Selected</button>
+      </div>
+      <div style="margin-top: 0.5rem;">
+        <button id="btn-stop" class="panel-btn" style="width: 100%;">⏹️ Stop</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sample Content Area -->
+  <main id="content">
+    <h2>Welcome to the accessibility panel demo</h2>
+    <p>Good writing isn’t about using big words—it’s about making your message impossible to miss. We’re building a plain-language toolkit to help anyone turn scrambled thoughts into sharp, impactful text. Just accessible, practical tools that make writing less painful and a lot more empowering.</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
