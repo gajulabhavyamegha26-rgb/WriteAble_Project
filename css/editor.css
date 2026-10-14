@@ -1,0 +1,47 @@
+/* =====================================================================
+   WriteAble - editor page styles
+   OWNERS: Esha (editor, suggestions)  +  Megha (voice controls)
+   ===================================================================== */
+
+.editor-label { display: block; font-weight: 700; margin: 1rem 0 0.4rem; }
+
+#editor {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 12rem;
+  padding: 0.8rem;
+  font: inherit;
+  color: var(--text);
+  background: var(--bg);
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  resize: vertical;
+}
+
+.counts { margin: 0.5rem 0; color: var(--muted); }
+.actions { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; margin: 0.8rem 0; }
+
+.status { min-height: 1.5rem; color: var(--muted); margin: 0.3rem 0; }
+
+/* ---------- grammar suggestions (Esha) ---------- */
+.suggestions { list-style: none; padding: 0; margin: 1rem 0 0; }
+.suggestions li {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-left-width: 6px;
+  border-left-color: var(--danger);
+  border-radius: 6px;
+  padding: 0.7rem 0.9rem;
+  margin-bottom: 0.6rem;
+}
+.suggestions li.ok { border-left-color: var(--accent); }
+.suggestions .flagged { font-weight: 700; }
+.suggestions .fixes { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
+.suggestions .fixes .btn { padding: 0.25rem 0.7rem; font-size: 0.9rem; }
+
+/* ---------- voice input (Megha) ---------- */
+.voice-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.8rem; margin: 0.5rem 0; }
+.listening { color: var(--danger); font-weight: 700; }
+.msg { color: var(--danger); margin: 0.4rem 0; }
+.btn.is-listening { background: var(--danger); border-color: var(--danger); color: #000; }
+[hidden] { display: none !important; }
