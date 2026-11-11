@@ -24,20 +24,86 @@
 .status { min-height: 1.5rem; color: var(--muted); margin: 0.3rem 0; }
 
 /* ---------- grammar suggestions (Esha) ---------- */
-.suggestions { list-style: none; padding: 0; margin: 1rem 0 0; }
-.suggestions li {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-left-width: 6px;
-  border-left-color: var(--danger);
-  border-radius: 6px;
-  padding: 0.7rem 0.9rem;
-  margin-bottom: 0.6rem;
+
+.writing-editor {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 25px;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
 }
-.suggestions li.ok { border-left-color: var(--accent); }
-.suggestions .flagged { font-weight: 700; }
-.suggestions .fixes { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
-.suggestions .fixes .btn { padding: 0.25rem 0.7rem; font-size: 0.9rem; }
+
+.writing-editor h2 {
+    color: #514080;
+    margin-bottom: 10px;
+}
+
+#writingArea {
+    width: 100%;
+    padding: 15px;
+    margin: 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+.editor-buttons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.editor-buttons button,
+.suggestion-button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    background: #65509b;
+    color: white;
+    cursor: pointer;
+}
+
+.editor-buttons button:hover,
+.suggestion-button:hover {
+    background: #493773;
+}
+
+.writing-counts {
+    display: flex;
+    gap: 25px;
+    margin: 15px 0;
+    color: #514080;
+}
+
+#statusMessage {
+    margin: 12px 0;
+}
+
+.suggestion-card {
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.suggestion-card p {
+    margin: 6px 0;
+}
+
+.suggestion-button {
+    margin-top: 8px;
+}
+
+@media (max-width: 600px) {
+    .writing-editor {
+        margin: 15px;
+        padding: 15px;
+    }
+}
+
 
 /* ---------- voice input (Megha) ---------- */
 .voice-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.8rem; margin: 0.5rem 0; }
