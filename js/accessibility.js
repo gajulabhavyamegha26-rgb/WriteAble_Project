@@ -53,6 +53,22 @@
     link.rel = 'stylesheet';
     link.href = 'https://fonts.cdnfonts.com/css/open-dyslexic';
     document.head.appendChild(link);
+
+    // the font rule is added here too, so the font works even if the CSS file is out of date
+    var style = document.createElement('style');
+    style.textContent =
+      'html[data-font="dyslexic"] body, html[data-font="dyslexic"] body * {' +
+      "font-family: 'Open-Dyslexic', 'Comic Sans MS', sans-serif !important; }";
+    document.head.appendChild(style);
+
+    // tell the user if the font could not be downloaded
+    if (document.fonts && document.fonts.load) {
+      document.fonts.load('1em "Open-Dyslexic"').then(function (loaded) {
+        if (!loaded.length) {
+          say('The dyslexia-friendly font could not be downloaded. Check your internet connection.');
+        }
+      });
+    }
   }
 
   load();
