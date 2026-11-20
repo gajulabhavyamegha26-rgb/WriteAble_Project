@@ -190,6 +190,12 @@ html[data-theme]:not([data-theme="light"]) textarea::placeholder {
   color: var(--a11y-accent-text);
 }
 
+/* make sure the text on blue buttons is always dark/light enough to read */
+html .a11y-btn[aria-pressed="true"],
+html .a11y-toggle {
+  color: var(--a11y-accent-text) !important;
+}
+
 .a11y-status {
   min-height: 1.3em;
   margin: 0.75rem 0 0;
