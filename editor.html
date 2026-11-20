@@ -4,6 +4,79 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Editor | WriteAble</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/accessibility.css">
+  <link rel="stylesheet" href="css/editor.css">
+  <script src="js/accessibility.js" defer></script>
+  <script src="js/editor.js" defer></script>
+  <script src="js/voice.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <a class="brand" href="index.html">WriteAble</a>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="editor.html" aria-current="page">Editor</a></li>
+        <li><a href="pages/writing-tips.html">Writing Tips</a></li>
+        <li><a href="pages/grammar-guide.html">Grammar Guide</a></li>
+        <li><a href="pages/templates.html">Templates</a></li>
+        <li><a href="pages/accessibility-guide.html">Accessibility</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <h1>Editor</h1>
+    <p>Type, paste, or dictate your writing, then check it. Use the accessibility button at the bottom right to
+       change text size, theme, or to hear your text read aloud.</p>
+
+    <!-- MEGHA: voice input controls -->
+    <div class="voice-row">
+      <button type="button" class="btn" id="micBtn" aria-pressed="false">
+        <span aria-hidden="true">&#127908;</span> <span id="micLabel">Start speaking</span>
+      </button>
+      <span class="listening" id="listening" role="status" hidden>&#9679; Listening...</span>
+    </div>
+    <p class="msg" id="voiceMsg" role="alert" hidden></p>
+
+    <!-- ESHA: editor, counters, grammar check -->
+    
+<section class="writing-editor">
+    <h2>WriteAble Text Editor</h2>
+    <p>Write your text below and check it for grammar mistakes.</p>
+
+    <textarea
+        id="writingArea"
+        placeholder="Start writing here..."
+        rows="12"
+    ></textarea>
+
+    <div class="editor-buttons">
+        <button id="checkButton">Check Writing</button>
+        <button id="clearButton">Clear</button>
+    </div>
+
+    <div class="writing-counts">
+        <span>Words: <strong id="wordCount">0</strong></span>
+        <span>Sentences: <strong id="sentenceCount">0</strong></span>
+    </div>
+
+    <p id="statusMessage" aria-live="polite"></p>
+
+    <div id="grammarResults">
+        <h3>Grammar Suggestions</h3>
+        <div id="suggestions"></div>
+    </div>
+</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Editor | WriteAble</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/accessibility.css">
   <link rel="stylesheet" href="css/editor.css">
@@ -71,7 +144,6 @@
         <div id="suggestions"></div>
     </div>
 </section>
-
     <p>&copy; 2026 WriteAble. First-year CSE mini project.</p>
   </footer>
 </body>
