@@ -34,6 +34,9 @@ body {
   line-height: 1.6;
   background: var(--bg);
   color: var(--text);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /* ---------- skip link (shows only when focused with the keyboard) ---------- */
@@ -102,6 +105,8 @@ nav a[aria-current="page"] {
 
 /* ---------- page content ---------- */
 main {
+  flex: 1 0 auto;
+  width: 100%;
   max-width: 60rem;
   margin: 0 auto;
   padding: 1.5rem 1.25rem 2.5rem;
@@ -239,4 +244,66 @@ footer {
 
 footer p {
   margin: 0;
+}
+
+/* ---------- header polish ---------- */
+header {
+  border-bottom: 4px solid var(--primary);
+  box-shadow: 0 2px 8px rgba(20, 26, 42, 0.08);
+}
+
+/* ---------- home page: welcome banner ---------- */
+.hero {
+  margin-bottom: 2rem;
+  padding: 2.5rem 1.75rem;
+  color: #ffffff;
+  background: linear-gradient(135deg, #1a56db, #6d28d9);
+  border-radius: 1rem;
+}
+
+.hero h1 {
+  margin: 0 0 0.75rem;
+  font-size: 2.5rem;
+  color: #ffffff;
+}
+
+.hero p {
+  max-width: 42rem;
+  margin: 0 0 1.5rem;
+  font-size: 1.15rem;
+  color: #ffffff;
+}
+
+.hero a.btn {
+  color: #ffffff;
+}
+
+/* ---------- home page: feature cards ---------- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
+  margin: 1rem 0 2rem;
+}
+
+.card {
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 4px rgba(20, 26, 42, 0.08);
+}
+
+.card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+}
+
+.card p {
+  margin: 0 0 0.75rem;
+  color: var(--muted);
+}
+
+.card a {
+  font-weight: 600;
 }
