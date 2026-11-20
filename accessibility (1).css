@@ -1,0 +1,213 @@
+/* =====================================================================
+   WriteAble - accessibility toolbar + themes
+   Pairs with js/accessibility.js
+
+   The script sets these attributes on <html>:
+     data-text-size = 100 | 115 | 130 | 150
+     data-theme     = light | dark | contrast
+     data-spacing   = on | off
+   ===================================================================== */
+
+/* ---------- toolbar colours (change with the theme) ---------- */
+:root {
+  --a11y-bg: #ffffff;
+  --a11y-text: #1a1a1a;
+  --a11y-border: #5b6475;
+  --a11y-accent: #1a56db;
+  --a11y-accent-text: #ffffff;
+}
+
+html[data-theme="dark"] {
+  --a11y-bg: #1b1e24;
+  --a11y-text: #e8eaed;
+  --a11y-border: #7a8294;
+  --a11y-accent: #8ab4f8;
+  --a11y-accent-text: #101216;
+
+  --site-bg: #121418;
+  --site-surface: #1b1e24;
+  --site-text: #e8eaed;
+  --site-link: #8ab4f8;
+  --site-border: #3a3f4a;
+  --site-button: #2d3340;
+}
+
+html[data-theme="contrast"] {
+  --a11y-bg: #000000;
+  --a11y-text: #ffffff;
+  --a11y-border: #ffffff;
+  --a11y-accent: #ffd400;
+  --a11y-accent-text: #000000;
+
+  --site-bg: #000000;
+  --site-surface: #000000;
+  --site-text: #ffffff;
+  --site-link: #ffd400;
+  --site-border: #ffffff;
+  --site-button: #000000;
+}
+
+/* ---------- text size ---------- */
+html[data-text-size="115"] { font-size: 115%; }
+html[data-text-size="130"] { font-size: 130%; }
+html[data-text-size="150"] { font-size: 150%; }
+
+/* ---------- wider spacing (easier reading for many people) ---------- */
+html[data-spacing="on"] body,
+html[data-spacing="on"] p,
+html[data-spacing="on"] li,
+html[data-spacing="on"] textarea {
+  line-height: 1.8 !important;
+  letter-spacing: 0.05em;
+  word-spacing: 0.12em;
+}
+
+/* ---------- dark + high-contrast site overrides ---------- */
+html[data-theme]:not([data-theme="light"]) body,
+html[data-theme]:not([data-theme="light"]) main {
+  background: var(--site-bg) !important;
+  color: var(--site-text) !important;
+}
+
+html[data-theme]:not([data-theme="light"]) header,
+html[data-theme]:not([data-theme="light"]) footer,
+html[data-theme]:not([data-theme="light"]) section,
+html[data-theme]:not([data-theme="light"]) article,
+html[data-theme]:not([data-theme="light"]) textarea,
+html[data-theme]:not([data-theme="light"]) pre,
+html[data-theme]:not([data-theme="light"]) th,
+html[data-theme]:not([data-theme="light"]) td,
+html[data-theme]:not([data-theme="light"]) .suggestion-card {
+  background: var(--site-surface) !important;
+  color: var(--site-text) !important;
+  border-color: var(--site-border) !important;
+}
+
+html[data-theme]:not([data-theme="light"]) h1,
+html[data-theme]:not([data-theme="light"]) h2,
+html[data-theme]:not([data-theme="light"]) h3,
+html[data-theme]:not([data-theme="light"]) h4,
+html[data-theme]:not([data-theme="light"]) p,
+html[data-theme]:not([data-theme="light"]) li,
+html[data-theme]:not([data-theme="light"]) dt,
+html[data-theme]:not([data-theme="light"]) dd,
+html[data-theme]:not([data-theme="light"]) label,
+html[data-theme]:not([data-theme="light"]) span,
+html[data-theme]:not([data-theme="light"]) strong {
+  color: var(--site-text) !important;
+}
+
+html[data-theme]:not([data-theme="light"]) a {
+  color: var(--site-link) !important;
+}
+
+html[data-theme]:not([data-theme="light"]) button:not(.a11y-btn):not(.a11y-toggle) {
+  background: var(--site-button) !important;
+  color: var(--site-text) !important;
+  border: 2px solid var(--site-border) !important;
+}
+
+html[data-theme]:not([data-theme="light"]) textarea::placeholder {
+  color: var(--site-text);
+  opacity: 0.7;
+}
+
+/* ---------- floating accessibility button ---------- */
+.a11y-toggle {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 9999;
+  min-height: 44px;
+  padding: 0.6rem 1.1rem;
+  border: 2px solid var(--a11y-border);
+  border-radius: 999px;
+  background: var(--a11y-accent);
+  color: var(--a11y-accent-text);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------- the panel ---------- */
+.a11y-panel {
+  position: fixed;
+  right: 1rem;
+  bottom: 4.5rem;
+  z-index: 9999;
+  box-sizing: border-box;
+  width: min(21rem, calc(100vw - 2rem));
+  max-height: calc(100vh - 6rem);
+  overflow-y: auto;
+  padding: 1rem;
+  border: 2px solid var(--a11y-border);
+  border-radius: 0.75rem;
+  background: var(--a11y-bg);
+  color: var(--a11y-text);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+}
+
+.a11y-panel[hidden] {
+  display: none;
+}
+
+.a11y-label {
+  margin: 0.75rem 0 0.35rem;
+  font-weight: 700;
+}
+
+.a11y-label:first-child {
+  margin-top: 0;
+}
+
+.a11y-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.a11y-btn {
+  min-height: 40px;
+  padding: 0.4rem 0.8rem;
+  border: 2px solid var(--a11y-border);
+  border-radius: 0.5rem;
+  background: transparent;
+  color: var(--a11y-text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.a11y-btn[aria-pressed="true"] {
+  background: var(--a11y-accent);
+  border-color: var(--a11y-accent);
+  color: var(--a11y-accent-text);
+}
+
+.a11y-status {
+  min-height: 1.3em;
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+}
+
+/* ---------- keyboard focus ---------- */
+.a11y-toggle:focus-visible,
+.a11y-btn:focus-visible {
+  outline: 3px solid var(--a11y-text);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .a11y-toggle,
+  .a11y-panel,
+  .a11y-btn {
+    transition: none;
+  }
+}
+
+@media print {
+  .a11y-toggle,
+  .a11y-panel {
+    display: none;
+  }
+}

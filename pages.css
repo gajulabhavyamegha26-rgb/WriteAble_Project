@@ -1,0 +1,77 @@
+/* =====================================================================
+   WriteAble - extra styles for the content pages in /pages
+   (Writing Tips, Grammar Guide, Templates, Accessibility guide)
+   Load after styles.css
+   ===================================================================== */
+
+main.content-page {
+  max-width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem 1.25rem 2.5rem;
+  line-height: 1.7;
+}
+
+.content-page h2 {
+  margin-top: 2rem;
+}
+
+.content-page li {
+  margin-bottom: 0.6rem;
+}
+
+/* "Instead of / Write" example boxes */
+.example {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid #1a56db;
+}
+
+.example p {
+  margin: 0.35rem 0;
+}
+
+/* tables in the grammar guide */
+.content-page table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.content-page th,
+.content-page td {
+  padding: 0.6rem;
+  border: 1px solid #9aa3b2;
+  text-align: left;
+  vertical-align: top;
+}
+
+/* copy-and-paste templates */
+.template {
+  margin: 1rem 0 2rem;
+  padding: 1rem;
+  border: 1px solid #9aa3b2;
+  border-radius: 0.5rem;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  font-family: inherit;
+  line-height: 1.6;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 2rem;
+}
+
+/* visible to screen readers only (used for table captions) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
