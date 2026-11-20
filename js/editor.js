@@ -1,4 +1,3 @@
-
 const writingArea = document.getElementById("writingArea");
 const checkButton = document.getElementById("checkButton");
 const clearButton = document.getElementById("clearButton");
@@ -32,6 +31,13 @@ async function checkGrammar() {
         return;
     }
 
+    if (text.length > 20000) {
+        statusMessage.textContent =
+            "Text is too long. Please check under 20,000 characters.";
+        suggestions.innerHTML = "";
+        return;
+    }
+
     checkButton.disabled = true;
     statusMessage.textContent = "Checking your writing...";
     suggestions.innerHTML = "";
@@ -42,11 +48,10 @@ async function checkGrammar() {
             {
                 method: "POST",
                 headers: {
-                    "Content-Type":
-                        "application/x-www-form-urlencoded"
+                    "Content-Type": "application/x-www-form-urlencoded"
                 },
                 body: new URLSearchParams({
-                    text: text,
+                    text: writingArea.value,
                     language: "en-US"
                 })
             }
@@ -119,7 +124,12 @@ function displaySuggestions(matches) {
                     writingArea.value.substring(end);
 
                 updateCounts();
-                checkGrammar();
+
+                // Other suggestions now have outdated positions,
+                // so clear them and ask the user to re-check.
+                suggestions.innerHTML = "";
+                statusMessage.textContent =
+                    "Fixed. Click Check Writing to re-check.";
             });
 
             card.appendChild(button);
