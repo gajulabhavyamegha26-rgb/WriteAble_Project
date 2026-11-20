@@ -2,9 +2,9 @@
    WriteAble - voice-to-text input
    OWNER: Megha
    Needs these ids on the page (see editor.html):
-     #micBtn  #micLabel  #listening  #voiceMsg  and Esha's  #editor
+     #micBtn  #micLabel  #listening  #voiceMsg  and Esha's  #writingArea
    How it connects to Esha's editor:
-     final speech results are appended to #editor, then an "input" event is
+     final speech results are appended to #writingArea, then an "input" event is
      fired so Esha's word/sentence counter updates.
    Works in Chrome / Edge (SpeechRecognition). Other browsers get a message.
    ===================================================================== */
@@ -12,7 +12,7 @@
   'use strict';
 
   var micBtn = document.getElementById('micBtn');
-  var editor = document.getElementById('editor');
+  var editor = document.getElementById('writingArea');
   if (!micBtn || !editor) return;
 
   var micLabel = document.getElementById('micLabel');
