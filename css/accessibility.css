@@ -62,6 +62,12 @@ html[data-spacing="on"] textarea {
   word-spacing: 0.12em;
 }
 
+/* ---------- dyslexia-friendly font ---------- */
+html[data-font="dyslexic"] body,
+html[data-font="dyslexic"] body * {
+  font-family: 'Open-Dyslexic', 'OpenDyslexic', 'Comic Sans MS', sans-serif !important;
+}
+
 /* ---------- dark + high-contrast site overrides ---------- */
 html[data-theme]:not([data-theme="light"]) body,
 html[data-theme]:not([data-theme="light"]) main {
